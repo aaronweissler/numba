@@ -1271,7 +1271,7 @@ class Registry(object):
             assert val is not None
             typing_key = kwargs.pop('typing_key', val)
             assert not kwargs
-            if typing_key is val:
+            if typing_key is val and val.__module__ is not None:
                 # Check the value is globally reachable, as it is going
                 # to be used as the key.
                 mod = sys.modules[val.__module__]
